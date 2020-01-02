@@ -9,10 +9,11 @@ genReview = async () => {
   let revObj, randOwn, randLoc, listReviews, date;
   let ownerProb = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let locationProb = [1, 2, 3];
+  //total reviews
   for (let j = 0; j < 101; j++) {
     let randRev = Math.floor(Math.random() * 25);
     listReviews = [];
-
+  //random number of reviews per property
     for (let i = 0; i < randRev; i++) {
       randOwn = Math.floor(Math.random() * 11);
       randLoc = Math.floor(Math.random() * 4);
