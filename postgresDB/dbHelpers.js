@@ -45,7 +45,6 @@ module.exports.postReview = ({rating, stayDate, title, review, postDate, author,
 };
 
 //Put-reviews
-
 module.exports.putReview = (update) => {
   let id = update.id;
   let param, queryStr;
