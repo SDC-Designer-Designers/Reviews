@@ -58,6 +58,16 @@ app.post('/reviews', async (req, res) => {
   }
 });
 
+//Put-reviews
+app.put('/reviews', async (req, res) => {
+  try {
+    const data = await dbHelpers.putReview(req.body);
+    res.status(200).send(data)
+  } catch (e) {
+    res.status(500).send(e)
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server listening on port -> ${port} <-`);

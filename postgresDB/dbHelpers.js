@@ -44,3 +44,32 @@ module.exports.postReview = ({rating, stayDate, title, review, postDate, author,
     });
   });
 };
+
+//Put-reviews
+
+module.exports.putReview = (update) => {
+  let id = update.id;
+  let param, queryStr;
+  for (let key in update) {
+    if (key !== 'id') {
+      param = key;
+    }
+  }
+  return new Promise((resolve, reject) => {
+    if (param === 'rating' || param === 'listingId') {
+      queryStr = `UPDATE reviews SET ${param}=${update[param]} WHERE id=${id};`;
+    } else {
+      queryStr = `UPDATE reviews SET ${param}='${update[param]}' WHERE id=${id};`;
+    }
+
+    console.log(queryStr);
+    client.query(queryStr, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res);
+    });
+  });
+};
+
+//Delete-Reviews
