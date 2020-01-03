@@ -35,7 +35,6 @@ module.exports.postReview = ({rating, stayDate, title, review, postDate, author,
     } else {
       queryStr = `INSERT INTO reviews(rating, stayDate, title, review, postDate, author, authorLocation, listingId) VALUES(${rating}, '${stayDate}', '${title}', '${review}', '${postDate}', '${author}', '${authorLocation}', ${listingId});`;
     }
-    console.log(queryStr);
     client.query(queryStr, (err, res) => {
       if (err) {
         reject(err);
@@ -61,8 +60,6 @@ module.exports.putReview = (update) => {
     } else {
       queryStr = `UPDATE reviews SET ${param}='${update[param]}' WHERE id=${id};`;
     }
-
-    console.log(queryStr);
     client.query(queryStr, (err, res) => {
       if (err) {
         reject(err);
@@ -73,3 +70,15 @@ module.exports.putReview = (update) => {
 };
 
 //Delete-Reviews
+
+module.exports.deleteReview = ({id}) => {
+  return new Promise((resolve, reject) => {
+    let queryStr = `DELETE FROM reviews where id=${id};`;
+    client.query(queryStr, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res);
+    });
+  });
+};

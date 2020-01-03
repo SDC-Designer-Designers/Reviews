@@ -48,7 +48,6 @@ app.get('/zips/:id', async (req, res) => {
 });
 
 //Post-reviews
-
 app.post('/reviews', async (req, res) => {
   try {
     const data = await dbHelpers.postReview(req.body);
@@ -62,6 +61,15 @@ app.post('/reviews', async (req, res) => {
 app.put('/reviews', async (req, res) => {
   try {
     const data = await dbHelpers.putReview(req.body);
+    res.status(200).send(data)
+  } catch (e) {
+    res.status(500).send(e)
+  }
+});
+
+app.delete('/reviews', async (req, res) => {
+  try {
+    const data = await dbHelpers.deleteReview(req.body);
     res.status(200).send(data)
   } catch (e) {
     res.status(500).send(e)
