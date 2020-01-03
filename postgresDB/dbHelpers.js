@@ -1,8 +1,29 @@
 const client = require('./index.js');
 
-let queryStr = `SELECT * FROM reviews;`;
-client.dbConnection.query(queryStr, (err, res) => {
-  if (err) { console.error(err); }
-  console.log(res.rows);
-  process.exit();
-});
+//Get-reviews
+module.exports.getReviews = (listingId) => {
+  return new Promise((resolve, reject) => {
+    let queryStr = `SELECT * FROM reviews where listingId=${listingId};`;
+    console.log(queryStr);
+    client.query(queryStr, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res.rows);
+    });
+  });
+};
+
+//Get-zipcodes
+module.exports.getZipcode = (listingId) => {
+  return new Promise((resolve, reject) => {
+    let queryStr = `SELECT * FROM zipcode where listingId=${listingId};`;
+    console.log(queryStr);
+    client.query(queryStr, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res.rows);
+    });
+  });
+};

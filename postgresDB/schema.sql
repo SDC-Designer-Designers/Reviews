@@ -36,3 +36,6 @@ CREATE TABLE zipcode (
 -- \copy reviews(rating, stayDate, title, review, postDate, author, authorLocation, ownerResponse, listingId) FROM '/Volumes/FookDrive/SDC/reviewSeed.csv' WITH DELIMITER ';';
 
 -- \copy zipcode(zipcode, listingid) FROM '/Volumes/FookDrive/SDC/zipcodeSeed.csv' WITH DELIMITER ';';
+
+-- CREATE INDEX listingId ON reviews USING btree (listingId DESC);
+-- CREATE INDEX listingIdZip ON zipcode USING btree (listingId DESC);
