@@ -21,7 +21,7 @@ module.exports.getZipcode = (listingId) => {
       if (err) {
         reject(err);
       }
-      resolve(res.rows);
+      resolve(res);
     });
   });
 };
