@@ -32,7 +32,16 @@ CREATE TABLE zipcode (
 	listingId INTEGER NOT NULL
 );
 
-
+-- PG Commands
 -- \copy reviews(rating, stayDate, title, review, postDate, author, authorLocation, ownerResponse, listingId) FROM '/Volumes/FookDrive/SDC/reviewSeed.csv' WITH DELIMITER ';';
 
 -- \copy zipcode(zipcode, listingid) FROM '/Volumes/FookDrive/SDC/zipcodeSeed.csv' WITH DELIMITER ';';
+
+-- CREATE INDEX listingId ON reviews USING btree (listingId DESC);
+-- CREATE INDEX listingIdZip ON zipcode USING btree (listingId DESC);
+
+-- Mongo Commands
+-- PG Commands
+-- mongoimport --db=reviewsZip --collection=zipcode --type=csv --columnsHaveTypes --fields="zipcode.string(),listingid.int64()" --file=/Volumes/FookDrive/SDC/mongoZipcodeSeed.csv
+
+-- mongoimport --db=reviewsZip --collection=reviews --type=csv --columnsHaveTypes --fields="rating.int32(),stayDate.string(),title.string(),review.string(),postDate.string(),author.string(),authorLocation.string(),ownerResponse.string(),listingId.int64()" --file=/Volumes/FookDrive/SDC/mongoReviewsSeed.csv

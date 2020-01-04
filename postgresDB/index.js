@@ -10,10 +10,10 @@ const client = new Client({
 
 client.connect()
   .then(() => {
-    console.log('connection created');
+    console.log('Postgres connection created');
   })
   .catch((err) => {
     console.error(err);
   });
 
-module.exports.dbConnection = client;
+module.exports = client;

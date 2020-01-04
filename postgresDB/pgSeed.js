@@ -9,7 +9,7 @@ const csv = require('csv-parser');
 let j = 1;
 
 //creates write stream, CHANGE LOCATION FOR EACH CSV
-const stream = fs.createWriteStream('/Volumes/FookDrive/SDC/reviewSeed.csv');
+const stream = fs.createWriteStream('/Volumes/FookDrive/SDC/mongoReviewsSeed.csv');
 
   stream.on('error', (err) => {
     console.error(err);
@@ -72,7 +72,7 @@ const stream = fs.createWriteStream('/Volumes/FookDrive/SDC/reviewSeed.csv');
             {id: 'ListingId', title: 'listingId'}
           ],
           append: true,
-          fieldDelimiter: ';'
+          fieldDelimiter: ','
         });
       ok = stream.write(csvStringifier.stringifyRecords(listReview));
     } else {
@@ -88,10 +88,10 @@ const stream = fs.createWriteStream('/Volumes/FookDrive/SDC/reviewSeed.csv');
 };
 
 // invokes CSV generating function
-// genReview()
-// .catch((err) => {
-//   console.error(err);
-// })
+genReview()
+.catch((err) => {
+  console.error(err);
+})
 
 //reads the free zipcode database and creates a cache
 const getZipcodes = () => {
@@ -129,7 +129,7 @@ genLocations = async (zipCache) => {
           {id: 'ListingId', title: 'listingId'}
       ],
     append: true,
-    fieldDelimiter: ';'
+    fieldDelimiter: ','
   });
   let ok = true;
 
