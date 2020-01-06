@@ -3,7 +3,7 @@ const client = require('./index.js');
 //Get-reviews
 module.exports.getReviews = (listingId) => {
   return new Promise((resolve, reject) => {
-    let queryStr = `SELECT * FROM reviews where listingId=${listingId};`;
+    let queryStr = `SELECT * FROM reviews WHERE listingId=${listingId};`;
     client.query(queryStr, (err, res) => {
       if (err) {
         reject(err);
@@ -16,12 +16,12 @@ module.exports.getReviews = (listingId) => {
 //Get-zipcodes
 module.exports.getZipcode = (listingId) => {
   return new Promise((resolve, reject) => {
-    let queryStr = `SELECT * FROM zipcode where listingId=${listingId};`;
+    let queryStr = `SELECT * FROM zipcode WHERE listingId=${listingId};`;
     client.query(queryStr, (err, res) => {
       if (err) {
         reject(err);
       }
-      resolve(res);
+      resolve(res.rows);
     });
   });
 };

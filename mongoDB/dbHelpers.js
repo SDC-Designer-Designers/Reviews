@@ -30,7 +30,6 @@ module.exports.getZipcode = (listingid) => {
 };
 
 //Post-Reviews
-
 module.exports.postReview = ({rating, stayDate, title, review, postDate, author, authorLocation, ownerResponse, listingId}) => {
   let formatReview = {
     rating: parseInt(rating),
