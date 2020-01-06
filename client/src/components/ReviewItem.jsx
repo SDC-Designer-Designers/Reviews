@@ -35,7 +35,7 @@ const ReviewItem = ({ review }) => {
           </span>
           <span className="author_stay_date">
             <span> Stayed </span>
-            <span>{moment(`${review.dateS}`).format('MMM YYYY')}</span>
+            <span>{moment(`${review.staydate}`).format('MMM YYYY')}</span>
           </span>
         </div>
         <div className="author">
@@ -50,7 +50,7 @@ const ReviewItem = ({ review }) => {
         <div className="review_footer">
           <div>
             <span>Published </span>
-            <span>{moment(`${review.dateP}`).format('MMM DD, YYYY')}</span>
+            <span>{moment(`${review.postdate}`).format('MMM DD, YYYY')}</span>
           </div>
         </div>
         <div className="review_response">
@@ -74,7 +74,7 @@ const ReviewItem = ({ review }) => {
           </span>
           <span className="author_stay_date">
             <span> Stayed </span>
-            <span>{moment(`${review.dateS}`).format('MMM YYYY')}</span>
+            <span>{moment(`${review.staydate}`).format('MMM YYYY')}</span>
           </span>
         </div>
         <div className="author">
@@ -89,7 +89,7 @@ const ReviewItem = ({ review }) => {
         <div className="review_footer">
           <div>
             <span>Published </span>
-            <span>{moment(`${review.dateP}`).format('MMM DD, YYYY')}</span>
+            <span>{moment(`${review.postdate}`).format('MMM DD, YYYY')}</span>
           </div>
         </div>
       </div>

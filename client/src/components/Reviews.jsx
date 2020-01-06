@@ -36,17 +36,15 @@ class Reviews extends Component {
     try {
       let adj = ['Terrible', 'Poor', 'Good', 'Wonderful', 'Excellent'];
       let rand = Math.floor(Math.random() * 100)
-      //console.log('This is id: ' + rand)
-      const results = await axios.get(`http://localhost:3004/reviews/${rand}`);
-      const zipResults = await axios.get(`http://localhost:3004/zips/${rand}`)
-      //console.log(zipResults.data[0].zipCode);
+      const results = await axios.get(`http://localhost:3005/reviews/${rand}`);
+      const zipResults = await axios.get(`http://localhost:3005/zips/${rand}`);
+      console.log(results, zipResults)
       const sortedResults = await results.data.sort((a,b) => {
-        return new Date(b.dateS) - new Date (a.dateS)
+        return new Date(b.staydate) - new Date (a.staydate)
       })
       const total = await results.data.reduce((a, b) => a + b.rating, 0) / results.data.length
-      //console.log(total);
       let allowedClicks = await Math.floor(results.data.length / 6);
-      //console.log('allowed:' + allowedClicks)
+
       if (results.data.length === 6 || allowedClicks === 0) {
         this.setState({
           addDis: true
@@ -54,14 +52,13 @@ class Reviews extends Component {
       }
       if (results.data.length % 6 === 0) {
         allowedClicks = allowedClicks - 1;
-        //console.log('new allowed clicks: ' + allowedClicks)
       }
       this.setState({
         reviews: sortedResults,
         listTotal: total,
         adj: adj[Math.round(total - 1)],
         allowed: allowedClicks,
-        zip: zipResults.data[0].zipCode
+        zip: zipResults.data[0].zipcode
       });
       //console.log(results.data)
     } catch (err) {
@@ -76,8 +73,6 @@ class Reviews extends Component {
     }, () => {
       this.checkRange();
       this.handleScroll();
-      //console.log('add current:' + this.state.currentPage)
-      //console.log('clicks: ' + this.state.clickNum)
     }
     )
   }
@@ -89,8 +84,6 @@ class Reviews extends Component {
     }, () => {
       this.checkRange();
       this.handleScroll();
-      //console.log('minus current:' + this.state.currentPage)
-      //console.log('clicks: ' + this.state.clickNum)
     }
     )
   }

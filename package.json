@@ -7,7 +7,8 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node db/seed.js",
-    "pgServer": "nodemon server/pgIndex.js"
+    "pgServer": "nodemon server/pgIndex.js",
+    "mongoServer": "nodemon server/mongoIndex.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,8 @@
     "google-map-react": "^1.1.5",
     "google-maps-react": "^2.0.2",
     "moment": "^2.24.0",
+    "mongodb": "^3.4.1",
+    "morgan": "^1.9.1",
     "mysql2": "^2.0.2",
     "pg": "^7.15.1",
     "react": "^16.12.0",

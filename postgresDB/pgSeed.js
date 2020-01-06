@@ -72,7 +72,7 @@ const stream = fs.createWriteStream('../../seed/reviewSeed.csv');
             {id: 'ListingId', title: 'listingId'}
           ],
           append: true,
-          fieldDelimiter: ';'
+          fieldDelimiter: ','
         });
       ok = stream.write(csvStringifier.stringifyRecords(listReview));
     } else {
@@ -88,10 +88,10 @@ const stream = fs.createWriteStream('../../seed/reviewSeed.csv');
 };
 
 // invokes CSV generating function
-// genReview()
-// .catch((err) => {
-//   console.error(err);
-// })
+genReview()
+.catch((err) => {
+  console.error(err);
+})
 
 //reads the free zipcode database and creates a cache
 const getZipcodes = () => {
@@ -129,7 +129,7 @@ genLocations = async (zipCache) => {
           {id: 'ListingId', title: 'listingId'}
       ],
     append: true,
-    fieldDelimiter: ';'
+    fieldDelimiter: ','
   });
   let ok = true;
 
