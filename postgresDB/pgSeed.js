@@ -9,7 +9,7 @@ const csv = require('csv-parser');
 let j = 1;
 
 //creates write stream, CHANGE LOCATION FOR EACH CSV
-const stream = fs.createWriteStream('/Volumes/FookDrive/SDC/reviewSeed.csv');
+const stream = fs.createWriteStream('../../seed/reviewSeed.csv');
 
   stream.on('error', (err) => {
     console.error(err);
