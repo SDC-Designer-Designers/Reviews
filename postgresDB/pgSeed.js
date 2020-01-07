@@ -29,7 +29,7 @@ const stream = fs.createWriteStream('../seed/reviewSeed.csv');
   let ok = true;
 
 
-  for (j; j <= 50000001; j++) {
+  for (j; j <= 20000001; j++) {
     if (ok) {
       listReview = [];
       randOwn = Math.floor(Math.random() * 11);
