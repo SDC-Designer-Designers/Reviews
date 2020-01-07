@@ -88,10 +88,10 @@ const stream = fs.createWriteStream('../seed/reviewSeed.csv');
 };
 
 // invokes CSV generating function
-genReview()
-.catch((err) => {
-  console.error(err);
-})
+// genReview()
+// .catch((err) => {
+//   console.error(err);
+// })
 
 //reads the free zipcode database and creates a cache
 const getZipcodes = () => {
@@ -158,12 +158,12 @@ genLocations = async (zipCache) => {
 }
 
 // creates zipcode cache, invokes CSV generating function
-// getZipcodes()
-// .then((data) => {
-//   console.log('Zipcodes Cached!');
-//   zipCache = data;
-//   genLocations(zipCache)
-// })
-// .catch((err) => {
-//   console.error(err);
-// });
+getZipcodes()
+.then((data) => {
+  console.log('Zipcodes Cached!');
+  zipCache = data;
+  genLocations(zipCache)
+})
+.catch((err) => {
+  console.error(err);
+});
