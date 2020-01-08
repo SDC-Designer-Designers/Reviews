@@ -36,8 +36,8 @@ class Reviews extends Component {
     try {
       let adj = ['Terrible', 'Poor', 'Good', 'Wonderful', 'Excellent'];
       let rand = Math.floor(Math.random() * 100)
-      const results = await axios.get(`http://localhost:3005/reviews/${rand}`);
-      const zipResults = await axios.get(`http://localhost:3005/zips/${rand}`);
+      const results = await axios.get(`http://34.217.125.30:3005/reviews/${rand}`);
+      const zipResults = await axios.get(`http://34.217.125.30:3005/zips/${rand}`);
       console.log(results, zipResults)
       const sortedResults = await results.data.sort((a,b) => {
         return new Date(b.staydate) - new Date (a.staydate)
