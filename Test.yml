@@ -1,18 +1,18 @@
 config:
-  target: 'http://localhost:3005'
+  target: 'http://35.162.85.201:3005'
   phases:
     - duration: 30
-      arrivalRate: 5000
+      arrivalRate: 500
   processor: "./testFunctions.js"
 scenarios:
   - flow:
-      - function: "createPayload"
-    # - get:
-        # url: "/reviews/{{ listingId }}"
-        # url: /zips/{{ listingId }}
-      - post:
-          url: "/reviews"
-          beforeRequest: "setJSONBody"
-          afterResponse: "logHeaders"
-          json: "{{ payload }}"
+    - function: "createListingId"
+    - get:
+        url: "/reviews/{{ listingId }}"
+      # url: "/zips/{{ listingId }}"
+      # - post:
+      #     url: "/reviews"
+      #     beforeRequest: "setJSONBody"
+      #     afterResponse: "logHeaders"
+      #     json: "{{ payload }}"
 

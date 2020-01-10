@@ -21,10 +21,6 @@ app.get('/reviews/:id', async (req, res) => {
   try {
     const data = await dbHelpers.getReviews(id);
 
-    if(!data.length){
-      res.status(404).send()
-    }
-
     res.status(200).send(data)
   } catch (e) {
     res.status(500).send(e)
@@ -36,10 +32,6 @@ app.get('/zips/:id', async (req, res) => {
   let id = req.params.id;
   try {
     const data = await dbHelpers.getZipcode(id);
-
-    if(!data.length){
-      res.status(404).send()
-    }
 
     res.status(200).send(data)
   } catch (e) {
